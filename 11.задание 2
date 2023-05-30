@@ -1,0 +1,26 @@
+class Restaurant:
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+
+    def describe_restaurant(self):
+        print(f"ресторан: {self.restaurant_name}")
+        print(f"кухня: {self.cuisine_type}")
+
+    def open_restaurant(self):
+        print("ресторан открыт!")
+
+
+
+restaurant1 = Restaurant("ресторан 1", "корейская")
+restaurant2 = Restaurant("ресторан 2", "французская")
+restaurant3 = Restaurant("ресторан 3", "японская")
+
+
+restaurant1.describe_restaurant()
+print()
+
+restaurant2.describe_restaurant()
+print()
+
+restaurant3.describe_restaurant()
