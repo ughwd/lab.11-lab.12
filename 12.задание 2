@@ -1,0 +1,89 @@
+class Restaurant:
+    def __init__(self, restaurant_name, cuisine_type, rating):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.rating = rating
+
+    def describe_restaurant(self):
+        print(f"ресторан: {self.restaurant_name}")
+        print(f"кухня: {self.cuisine_type}")
+        print(f"рейтинг: {self.rating}")
+
+    def open_restaurant(self):
+        print("ресторан открыт!")
+
+
+class IceCreamStand(Restaurant):
+    def __init__(self, restaurant_name, cuisine_type, rating, flavors, location, working_hours):
+        super().__init__(restaurant_name, cuisine_type, rating)
+        self.flavors = flavors
+        self.location = location
+        self.working_hours = working_hours
+
+    def display_flavors(self):
+        print("список сортов мороженого:")
+        for flavor in self.flavors:
+            print(flavor)
+
+    def add_flavor(self, flavor):
+        self.flavors.append(flavor)
+        print(f"сорт мороженого '{flavor}' добавлен.")
+
+    def remove_flavor(self, flavor):
+        if flavor in self.flavors:
+            self.flavors.remove(flavor)
+            print(f"сорт мороженого '{flavor}' удален.")
+        else:
+            print(f"сорт мороженого '{flavor}' не найден.")
+
+    def check_flavor(self, flavor):
+        if flavor in self.flavors:
+            print(f"сорт мороженого '{flavor}' доступен.")
+        else:
+            print(f"сорт мороженого '{flavor}' недоступен.")
+
+
+class PopsicleIceCream(IceCreamStand):
+    def __init__(self, restaurant_name, rating, flavors, location, working_hours):
+        super().__init__(restaurant_name, "мороженое на палочке", rating, flavors, location, working_hours)
+
+    def eat_popsicle(self):
+        print("вы съели мороженое на палочке.")
+
+
+class SoftIceCream(IceCreamStand):
+    def __init__(self, restaurant_name, rating, flavors, location, working_hours):
+        super().__init__(restaurant_name, "мягкое мороженое", rating, flavors, location, working_hours)
+
+    def eat_soft_ice_cream(self):
+        print("вы съели мягкое мороженое.")
+
+
+
+ice_cream_stand = IceCreamStand("ахой", "кафе", 4.2, ["мята", "шоколад", "клубника", "карамель"],
+                                "рылеева", "10:00 - 20:00")
+
+
+ice_cream_stand.display_flavors()
+
+
+ice_cream_stand.add_flavor("ананас")
+ice_cream_stand.display_flavors()
+
+
+ice_cream_stand.remove_flavor("клубника")
+ice_cream_stand.display_flavors()
+
+
+ice_cream_stand.check_flavor("мята")
+ice_cream_stand.check_flavor("манго")
+
+
+popsicle_stand = PopsicleIceCream("ахой", 4.5, ["клубника", "вишня"], "парк", "12:00 - 18:00")
+popsicle_stand.display_flavors()
+popsicle_stand.eat_popsicle()
+
+
+soft_stand = SoftIceCream("баскет роббинс", 4.8, ["шоколад", "мята", "карамель"], "пляж", "11:00 - 21:00")
+soft_stand.display_flavors()
+soft_stand.eat_soft_ice_cream()
